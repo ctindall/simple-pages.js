@@ -1,0 +1,51 @@
+* Installation
+  There isn't any. Just serve from somewhere and include it in your HTML:
+  #+BEGIN_SRC html
+    <script src="./js/pages.js"></script>
+  #+END_SRC
+
+* Usage
+  =simple-pages.js= expects your "pages" to be elements with the class =page=. "Next" buttons need to have the class =btn-next= and back buttons likewise should have the class =btn-back=. Here's a good template to use:
+
+#+BEGIN_SRC html
+  <!-- BEGIN PAGE -->
+  <div class="page" id="home">
+    <div class="page-content">
+      <h1>Page Title</h1>
+
+      <p>This is my page content.</p>
+    </div> <!-- /page-content -->
+
+    <div class="page-nav">
+      <button type="button" class="btn-back">back</button>
+      <button type="button" class="btn-next">next</button>
+    </div> <!-- /page-nav -->
+
+  </div>
+  <!-- END PAGE -->
+#+END_SRC
+
+If you're using Bootstrap, and you probably are, I usually make the =div.page= also a container-fluid, and the =div.page-nav= and =div.page-content= blocks into columns:
+
+#+BEGIN_SRC html
+  <!-- BEGIN PAGE -->
+  <div class="page container-fluid" id="home">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 page-content">
+      <h1>Page Title</h1>
+
+      <p>This is my page content</p>
+    </div> <!-- /page-content -->
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nav-col">
+      <button type="button" class="btn btn-default btn-back">back</button>
+      <button type="button" class="btn btn-primary btn-next">next</button>
+    </div> <!-- /page-nav -->
+
+  </div> <!-- /page /container-fluid -->
+  <!-- END PAGE -->
+
+#+END_SRC 
+
+* Upcoming Enhancements
+** TODO use =window.hash= to bookmark inner pages
+** TODO create an easy way to create "jump" buttons (jump to a particular page instead of just forward or back) without writing on onClick handler by hand
